@@ -1,0 +1,90 @@
+.personal-info-container {
+  img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin-bottom: 0;
+    color: #666;
+  }
+
+  .username {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 0;
+  }
+
+  button {
+    color: #24292e;
+    background-color: #fafbfc;
+    border-color: rgba(27, 31, 35, .15);
+    box-shadow: 0 1px 0 rgba(27, 31, 35, .04), inset 0 1px 0 hsla(0, 0%, 100%, .25);
+    transition: background-color .2s cubic-bezier(.3, 0, .5, 1);
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 6px;
+
+    &.follow {
+      margin-bottom: 20px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: #f3f4f6;
+      transition-duration: .1s;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    i {
+      color: #e36868;
+      vertical-align: middle;
+    }
+  }
+
+  div {
+    font-size: 12px;
+
+    &.copmany-wrapper {
+      a {
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    a {
+      font-weight: 600;
+      line-height: 21px;
+      color: #24292e;
+    }
+
+    i {
+      vertical-align: middle;
+      color: #24292e;
+      padding-right: 5px;
+
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .personal-info-container {
+    img {
+      width: 50%;
+      margin: 0 auto;
+      display: block;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    } 
+  }
+}

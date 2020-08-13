@@ -1,0 +1,25 @@
+<div class="personal-info-container">
+  <img [src]="user.avatar" [alt]="user.name" onerror="this.src = '../assets/images/none.png'">
+  <h1>{{ user.name }}</h1>
+  <p class="username">{{ user.username }}</p>
+  <button class="btn btn-block">
+    <i class="fa fa-heart-o" aria-hidden="true"></i>
+    Sponser
+  </button>
+  <button class="btn btn-block follow">Follow</button>
+
+  <div class="copmany-wrapper" *ngIf="user.company">
+    <i class="fa fa-users" aria-hidden="true"></i>
+    <a>{{ user.company }}</a>
+  </div>
+
+  <div class="location-wrapper" *ngIf="user.location">
+    <i class="fa fa-map-marker" aria-hidden="true"></i>
+    {{ user.location }}
+  </div>
+
+  <div class="blog-wrapper" *ngIf="user.blog">
+    <i class="fa fa-link" aria-hidden="true"></i>
+    <a [href]="user.blog" target="blank">{{ user.blog }}</a>
+  </div>
+</div>

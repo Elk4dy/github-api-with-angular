@@ -1,0 +1,98 @@
+<section class="career-info-container">
+  <div class="tabs-wrapper">
+    <ul>
+      <li>
+        <a>Overview</a>
+      </li>
+      <li class="active">
+        <a>Repositories <span>{{ user.publicRepos }}</span></a>
+      </li>
+      <li>
+        <a>Projects</a>
+      </li>
+      <li>
+        <a>Stars</a>
+      </li>
+      <li>
+        <a>Followers <span>{{ user.followers }}</span></a>
+      </li>
+      <li>
+        <a>Following <span>{{ user.following }}</span></a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="filter-wrapper">
+    <form>
+      <input type="text" name="repoName" [(ngModel)]="repoFilterName" (keyup)="filterRepos(repoFilterName)"
+        placeholder="Find a repository...">
+    </form>
+
+    <div class="filter-buttons-wrapper">
+      <button class="btn">
+        Type: <span>All <span class="dropdown-caret"></span></span>
+      </button>
+      <button class="btn">
+        Language: <span>All <span class="dropdown-caret"></span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="repos-wrapper">
+    <div class="filter-search-result-symbol" *ngIf="repoFilterName">
+      <p>
+        <strong>{{ filteredItems.length }}</strong>
+        results for repositories matching
+        <strong>{{ repoFilterName }}</strong>
+      </p>
+      <button class="btn" (click)="clearFilter()">
+        <i class="fa fa-window-close" aria-hidden="true"></i>
+        Clear filter
+      </button>
+    </div>
+    
+    <div class="no-results-found" *ngIf="filteredItems.length === 0">
+      <p>
+        <span>{{ repoFilterName }}</span>
+        doesn’t have any repositories that match.
+      </p>
+    </div>
+    <div class="row" *ngFor="let repo of filteredItems">
+      <div class="col-9 col-lg-9">
+        <h3>
+          <a [href]="repo.url" target="blank">{{ repo.name }}</a>
+        </h3>
+        <p>{{ repo.description }}</p>
+
+        <ul>
+          <li *ngIf="repo.language">
+            <i class="fa fa-circle" aria-hidden="true"></i>
+            {{ repo.language }}
+          </li>
+          <li *ngIf="repo.stars > 0" class="hover">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            {{ repo.stars }}
+          </li>
+          <li *ngIf="repo.forks > 0" class="hover">
+            <i class="fa fa-code-fork" aria-hidden="true"></i>
+            {{ repo.forks }}
+          </li>
+          <li *ngIf="repo.license">
+            <i class="fa fa-balance-scale" aria-hidden="true"></i>
+            {{ repo.license }}
+          </li>
+          <li>Updatet {{ repo.updatedAt | date:'longDate'}}</li>
+        </ul>
+      </div>
+
+      <div class="col-3 col-lg-3 star-button-wrapper">
+        <button class="btn" (click)="stared(repo)">
+          <i *ngIf="repo.isStared" class="fa fa-star" aria-hidden="true"></i>
+          <i *ngIf="!repo.isStared" class="fa fa-star-o" aria-hidden="true"></i>
+          <span *ngIf="!repo.isStared">Star</span>
+          <span *ngIf="repo.isStared">Unstar</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

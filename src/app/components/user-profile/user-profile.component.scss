@@ -1,0 +1,141 @@
+header {
+  .navbar {
+    font-size: 14px;
+    line-height: 1.5;
+    color: hsla(0, 0%, 100%, .7);
+    background-color: #24292e;
+    display: flex;
+    align-items: center;
+
+    button {
+      color: #fff;
+      padding: 0;
+      font-size: 25px;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    a {
+      img {
+        width: 32px;
+      }
+    }
+
+    .navbar-collapse {
+      .search-input-wrapper {
+        position: relative;
+        padding-right: 15px;
+
+        form {
+          label {
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+            font-size: inherit;
+            font-weight: 400;
+            color: #fff;
+            vertical-align: middle;
+            background-color: hsla(0, 0%, 100%, .125);
+            border: 0;
+            box-shadow: none;
+            border-radius: 10px;
+
+            input {
+              width: 200px;
+              padding-top: 0;
+              padding-bottom: 0;
+              font-size: inherit;
+              color: inherit;
+              background: none;
+              border: 0;
+              box-shadow: none;
+              color: #fff;
+              padding: 5px 10px;
+              transition: width 0.4s;
+              text-align: left;
+
+              &::placeholder {
+                color: #dddddd;
+              }
+
+              &:focus {
+                outline: 0;
+                width: 400px;
+              }
+
+            }
+          }
+        }
+      }
+
+      ul {
+        li {
+          padding-right: 15px;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .options-wrapper {
+    color: #fff;
+    div {
+      display: inline-block;
+      padding-right: 15px;
+    }
+    .add-new {
+      font-size: 25px;
+      vertical-align: middle;
+      line-height: 25px;
+      cursor: pointer;
+    }
+
+    .profile-options {
+      cursor: pointer;
+      img {
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+    }
+    .dropdown-caret {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      vertical-align: middle;
+      content: "";
+      border-top-style: solid;
+      border-top-width: 4px;
+      border-right: 4px solid transparent;
+      border-bottom: 0 solid transparent;
+      border-left: 4px solid transparent;
+    }
+  }
+}
+
+.prodile-wrapper {
+  padding-top: 25px;
+}
+@media only screen and (max-width: 991px) {
+  .navbar-collapse {
+    .search-input-wrapper {
+      padding-right: 0;
+      form {
+        label {
+          input {
+            width: 100% !important;
+            text-align: center !important;
+            
+            &:focus {
+              width: 100% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

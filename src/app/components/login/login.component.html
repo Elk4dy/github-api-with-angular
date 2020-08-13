@@ -1,0 +1,13 @@
+<section>
+  <div class="form-wrapper">
+    <img src="../assets/images/github-logo.svg" alt="github-logo">
+    <h1>Welcome to our Github API application</h1>
+    <form (ngSubmit)="validateUserName()">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Enter your Github username">
+      <p *ngIf="validUsername">Please enter a valid github username</p>
+
+      <button type="submit">sign in</button>
+    </form>
+  </div>
+</section>
